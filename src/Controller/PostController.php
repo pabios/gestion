@@ -30,13 +30,13 @@ class PostController extends AbstractController
     #[IsGranted("ROLE_USER")]
     public function new(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
-       
-      
+
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $image = $form->get('image')->getData();
+           // dd($form);
             if ($image) {
                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                $safeFilename = $slugger->slug($originalFilename);
@@ -46,9 +46,9 @@ class PostController extends AbstractController
                    $newFilename
                );
                $post->setImage($newFilename);
-             
+               
            }
-            $post->setUser($this->getUser());
+            //$post->setUser($this->getUser());
             $post->setPublishedDate(new DateTimeImmutable);
             $manager->persist($post);
             $manager->flush();
@@ -153,7 +153,8 @@ class PostController extends AbstractController
     {
         $search= $request->query->get("search");
       
-        $allPosts = $postRepo->search($search);
+        //$allPosts = $postRepo->search($search);
+        $allPosts = $postRepo->searchParCategory($search);
         return $this->render('home/index.html.twig', [
             'posts' => $allPosts,
         ]);

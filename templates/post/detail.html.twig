@@ -2,13 +2,22 @@
 
 {% block body %}
 	<article class="blog-post">
-		<h1 class="blog-post-title">{{ post.title }}</h2>
-		<p>{{ post.content|raw }}</p>
-		<p class="blog-post-meta">{{post.publishedDate|date("d/m/Y")}}
-			by
+		<h1 class="blog-post-title">Fiche D'Enregistrement </h1>
+		<p class="blog-post-meta">Le {{post.publishedDate|date("d/m/Y")}}
+			Par le chauffeur
 			<a href="#">{{post.user}}</a>
 		</p>
+		<p>Destination: <b>{{ post.title }} </b> </p>
+		<p> Montant Convenu: <b>{{ post.montant }} GNF</b> </p>
+		<p>Avance Espece : <b>{{ post.content }} GNF </b> </p>
+		<p>N° Bon Livraison: <b>{{ post.bl }}  </b> </p>
+		<p>Lieu de  Chargement: <b>{{ post.lieu }} </b> </p>
+
+		
+		
 	</article>
+
+	 
 
 	<hr/>
 

@@ -35,6 +35,19 @@ class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * recherche par categorie | tepa = Immatriculation
+     */
+    public function searchParCategory($category)
+    {
+        //RETOURNE L'EQUIVALENT D'UN $category->getPosts() 
+        //À NOTER LE 'MEMBER OF' QUI PERMET DE VERIFIER TOUTES LES CATÉGORIES (RELATION MANY TO MANY)
+        $qb = $this->createQueryBuilder("p")
+            ->where(':category MEMBER OF p.categories')
+            ->setParameter('category', $category);
+
+        return $qb->getQuery()->getResult();
+    }
 
 
     /* VERSION INNER JOIN */

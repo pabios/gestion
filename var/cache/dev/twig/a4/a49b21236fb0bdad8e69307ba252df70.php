@@ -66,33 +66,51 @@ class __TwigTemplate_7fbabdd874d09cc6d5828158bd735eb2 extends Template
 
         // line 4
         echo "\t<article class=\"blog-post\">
-\t\t<h1 class=\"blog-post-title\">";
-        // line 5
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 5, $this->source); })()), "title", [], "any", false, false, false, 5), "html", null, true);
-        echo "</h2>
-\t\t<p>";
+\t\t<h1 class=\"blog-post-title\">Fiche D'Enregistrement </h1>
+\t\t<p class=\"blog-post-meta\">Le ";
         // line 6
-        echo twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 6, $this->source); })()), "content", [], "any", false, false, false, 6);
-        echo "</p>
-\t\t<p class=\"blog-post-meta\">";
-        // line 7
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 7, $this->source); })()), "publishedDate", [], "any", false, false, false, 7), "d/m/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 6, $this->source); })()), "publishedDate", [], "any", false, false, false, 6), "d/m/Y"), "html", null, true);
         echo "
-\t\t\tby
+\t\t\tPar le chauffeur
 \t\t\t<a href=\"#\">";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9), "html", null, true);
+        // line 8
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 8, $this->source); })()), "user", [], "any", false, false, false, 8), "html", null, true);
         echo "</a>
 \t\t</p>
+\t\t<p>Destination: <b>";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
+        echo " </b> </p>
+\t\t<p> Montant Convenu: <b>";
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 11, $this->source); })()), "montant", [], "any", false, false, false, 11), "html", null, true);
+        echo " GNF</b> </p>
+\t\t<p>Avance Espece : <b>";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 12, $this->source); })()), "content", [], "any", false, false, false, 12), "html", null, true);
+        echo " GNF </b> </p>
+\t\t<p>N° Bon Livraison: <b>";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 13, $this->source); })()), "bl", [], "any", false, false, false, 13), "html", null, true);
+        echo "  </b> </p>
+\t\t<p>Lieu de  Chargement: <b>";
+        // line 14
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 14, $this->source); })()), "lieu", [], "any", false, false, false, 14), "html", null, true);
+        echo " </b> </p>
+
+\t\t
+\t\t
 \t</article>
+
+\t 
 
 \t<hr/>
 
 \t<h3>Commentaires</h3>
 \t";
-        // line 16
+        // line 25
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 16, $this->source); })()), "comments", [], "any", false, false, false, 16));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 25, $this->source); })()), "comments", [], "any", false, false, false, 25));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -107,7 +125,7 @@ class __TwigTemplate_7fbabdd874d09cc6d5828158bd735eb2 extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 17
+            // line 26
             echo "\t\t";
             echo twig_include($this->env, $context, "post/comment.html.twig");
             echo "
@@ -124,11 +142,11 @@ class __TwigTemplate_7fbabdd874d09cc6d5828158bd735eb2 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 19
+        // line 28
         echo "
 \t";
-        // line 20
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form');
+        // line 29
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), 'form');
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -149,7 +167,7 @@ class __TwigTemplate_7fbabdd874d09cc6d5828158bd735eb2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  131 => 20,  128 => 19,  111 => 17,  94 => 16,  84 => 9,  79 => 7,  75 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  149 => 29,  146 => 28,  129 => 26,  112 => 25,  98 => 14,  94 => 13,  90 => 12,  86 => 11,  82 => 10,  77 => 8,  72 => 6,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -158,13 +176,22 @@ class __TwigTemplate_7fbabdd874d09cc6d5828158bd735eb2 extends Template
 
 {% block body %}
 \t<article class=\"blog-post\">
-\t\t<h1 class=\"blog-post-title\">{{ post.title }}</h2>
-\t\t<p>{{ post.content|raw }}</p>
-\t\t<p class=\"blog-post-meta\">{{post.publishedDate|date(\"d/m/Y\")}}
-\t\t\tby
+\t\t<h1 class=\"blog-post-title\">Fiche D'Enregistrement </h1>
+\t\t<p class=\"blog-post-meta\">Le {{post.publishedDate|date(\"d/m/Y\")}}
+\t\t\tPar le chauffeur
 \t\t\t<a href=\"#\">{{post.user}}</a>
 \t\t</p>
+\t\t<p>Destination: <b>{{ post.title }} </b> </p>
+\t\t<p> Montant Convenu: <b>{{ post.montant }} GNF</b> </p>
+\t\t<p>Avance Espece : <b>{{ post.content }} GNF </b> </p>
+\t\t<p>N° Bon Livraison: <b>{{ post.bl }}  </b> </p>
+\t\t<p>Lieu de  Chargement: <b>{{ post.lieu }} </b> </p>
+
+\t\t
+\t\t
 \t</article>
+
+\t 
 
 \t<hr/>
 
