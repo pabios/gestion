@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				BLOG
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		{% endblock %}
+
+		{% block javascripts %}
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		{% endblock %}
+	</head>
+	<header class="p-3 bg-dark text-white mb-3">
+		<div class="container">
+			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+					<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+						<use xlink:href="#bootstrap"></use>
+					</svg>
+				</a>
+
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li>
+						<a href="{{path('home')}}" class="nav-link px-2 text-secondary">Home</a>
+					</li>
+				</ul>
+
+				<form action="{{path('search')}}" class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+					<input type="search" id="search" list="searchList" name="search" class="me-2 form-control form-control-dark" placeholder="Search..." aria-label="Search">
+					<button class="btn btn-warning" type="submit">Search</button>
+				</form>
+				<datalist id="searchList"></datalist>
+				<div class="text-end">
+					{% if app.user %}
+						Bienvenue
+						{{app.user.firstname}}
+						<a href="{{path('logout')}}">
+							<button type="button" class="btn btn-outline-light me-2">Deconnexion</button>
+						</a>
+
+					{% else %}
+						<a href="{{path('login')}}">
+							<button type="button" class="btn btn-outline-light me-2">Connexion</button>
+						</a>
+						<a href="{{path('register')}}">
+							<button type="button" class="btn btn-warning">
+								Inscription</button>
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</header>
+	<body>
+		<div class="container"> {% block body %}{% endblock %}
+			</div>
+		</body>
+	</html>
+	<form>

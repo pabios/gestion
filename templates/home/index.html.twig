@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<div id="posts" class="row mb-2">
+		
+	{% include "/home/posts.html.twig" %}
+
+
+	</div>
+	<button class="btn btn-dark mb-5 " id="loadPosts">Chargez plus d'articles</button>
+{% endblock %}
