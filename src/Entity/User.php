@@ -39,6 +39,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
     private $comments;
 
+    #[ORM\ManyToOne(targetEntity: Entreprise::class, inversedBy: 'users')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $entreprise;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -189,6 +193,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $post->setUser(null);
             }
         }
+        return $this;
+    }
+
+    public function getEntreprise(): ?Entreprise
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?Entreprise $entreprise): self
+    {
+        $this->entreprise = $entreprise;
+
         return $this;
     }
 }

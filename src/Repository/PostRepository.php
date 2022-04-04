@@ -77,8 +77,6 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-
-
     public function findByDates($from, $to)
     {
         $qb = $this->createQueryBuilder("p");

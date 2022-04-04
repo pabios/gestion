@@ -153,8 +153,8 @@ class PostController extends AbstractController
     {
         $search= $request->query->get("search");
       
-        //$allPosts = $postRepo->search($search);
-        $allPosts = $postRepo->searchParCategory($search);
+        $allPosts = $postRepo->search($search);
+        //$allPosts = $postRepo->searchParCategory($search);
         return $this->render('home/index.html.twig', [
             'posts' => $allPosts,
         ]);

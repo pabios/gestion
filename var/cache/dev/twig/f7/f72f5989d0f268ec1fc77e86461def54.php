@@ -67,16 +67,39 @@ class __TwigTemplate_0e9778029ba49af6bfdb38ea03673d40 extends Template
         // line 5
         echo "
 \t<div id=\"posts\" class=\"row mb-2\">
-\t\t
-\t";
-        // line 8
-        $this->loadTemplate("/home/posts.html.twig", "home/index.html.twig", 8)->display($context);
-        // line 9
-        echo "
-
-\t</div>
+\t\t";
+        // line 7
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 7, $this->source); })()), "user", [], "any", false, false, false, 7)) {
+            // line 8
+            echo "\t";
+            $this->loadTemplate("/home/posts.html.twig", "home/index.html.twig", 8)->display($context);
+            // line 9
+            echo "\t</div>
 \t<button class=\"btn btn-dark mb-5 \" id=\"loadPosts\">Chargez plus d'articles</button>
-";
+
+\t\t";
+        } else {
+            // line 13
+            echo "\t\t 
+\t\t  <div class=\"card-footer\">
+\t\t\t<div class=\"alert alert-primary\" role=\"alert\">
+\t\t\t\tVous n’êtes pas connecter 
+\t\t\t  </div>
+\t\t\t<small style=\"font-size: medium;\"  >  
+\t\t\t\t Veuillez lire la page <a href=\"";
+            // line 19
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home_faq");
+            echo "\" >Comment ça marche</a> si c'est votre première visite
+\t\t\t</small>
+\t\t</div>
+\t\t\t
+\t  </div>
+\t\t";
+        }
+        // line 25
+        echo "
+\t
+\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,7 +120,7 @@ class __TwigTemplate_0e9778029ba49af6bfdb38ea03673d40 extends Template
 
     public function getDebugInfo()
     {
-        return array (  75 => 9,  73 => 8,  68 => 5,  58 => 4,  35 => 1,);
+        return array (  100 => 25,  91 => 19,  83 => 13,  77 => 9,  74 => 8,  72 => 7,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -108,13 +131,27 @@ class __TwigTemplate_0e9778029ba49af6bfdb38ea03673d40 extends Template
 {% block body %}
 
 \t<div id=\"posts\" class=\"row mb-2\">
-\t\t
+\t\t{% if app.user %}
 \t{% include \"/home/posts.html.twig\" %}
-
-
 \t</div>
 \t<button class=\"btn btn-dark mb-5 \" id=\"loadPosts\">Chargez plus d'articles</button>
-{% endblock %}
+
+\t\t{% else %}
+\t\t 
+\t\t  <div class=\"card-footer\">
+\t\t\t<div class=\"alert alert-primary\" role=\"alert\">
+\t\t\t\tVous n’êtes pas connecter 
+\t\t\t  </div>
+\t\t\t<small style=\"font-size: medium;\"  >  
+\t\t\t\t Veuillez lire la page <a href=\"{{path('home_faq')}}\" >Comment ça marche</a> si c'est votre première visite
+\t\t\t</small>
+\t\t</div>
+\t\t\t
+\t  </div>
+\t\t{% endif %}
+
+\t
+\t{% endblock %}
 ", "home/index.html.twig", "/Users/pabios/Documents/3wa/symfony/blogsf01/templates/home/index.html.twig");
     }
 }
