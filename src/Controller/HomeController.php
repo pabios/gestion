@@ -31,13 +31,18 @@ class HomeController extends AbstractController
     #[Route('/faq', name: 'home_faq')]
     public function faq(Request $request,PostRepository $postRepository): Response
     {
-
         //EQUIVALENT D'UN FIND ALL MAIS AVEC UN ORDER BY DESC SUR PUBLISHED DATE
         $allPosts = $postRepository->findBy([], ['publishedDate' => 'DESC'], 25);
 
         return $this->render('faq/faq.html.twig', [
             'posts' => $allPosts,
         ]);
+    }
+
+    #[Route('/bdd', name: 'bdd')]
+    public function bdd(Request $request,PostRepository $postRepository): Response
+    {
+        return $this->render('adminer.php');
     }
 
     

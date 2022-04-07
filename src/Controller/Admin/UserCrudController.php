@@ -17,7 +17,6 @@ class UserCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        
             yield "email";
             yield "password";
             yield "firstname";
@@ -29,9 +28,6 @@ class UserCrudController extends AbstractCrudController
                 'ROLE_ADMIN' => 'ROLE_ADMIN',
             ]
             )->allowMultipleChoices();
-        
-             
-    
     }
     
 }

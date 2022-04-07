@@ -30,6 +30,8 @@ final class Version20220407215554 extends AbstractMigration
         $this->addSql('ALTER TABLE post ADD CONSTRAINT FK_5A8A6C8DA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A190604B89032C FOREIGN KEY (post_id) REFERENCES post (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A1906012469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A1906012469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
+        $this->addSql("INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `entreprise_id`) VALUES ('5', '628815845', '\"ROLE_ADMIN\"', 'papa', 'Abdoulaye Pathe', '1')");
     }
 
     public function down(Schema $schema): void
