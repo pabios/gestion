@@ -17,6 +17,7 @@ return [
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::index'], [], [['text', '/admin']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
+    'home_faq' => [[], ['_controller' => 'App\\Controller\\HomeController::faq'], [], [['text', '/faq']], [], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
     'post' => [[], ['_controller' => 'App\\Controller\\PostController::new'], [], [['text', '/post/create']], [], [], []],
     'post-edit' => [['id'], ['_controller' => 'App\\Controller\\PostController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/post-edit']], [], [], []],

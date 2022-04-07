@@ -85,11 +85,22 @@ class __TwigTemplate_4c49c775435441d702c4dab2d627815e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Register</h1>
-
-    ";
-        // line 8
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 8, $this->source); })()), 'form');
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) {
+            // line 7
+            echo "    <h1>J'ajoute un nouveau Partenaire</h1>
+";
+        } else {
+            // line 9
+            echo "<h4>Es-tu le gerand d'une Entreprise ?</h4>
+<div class=\"alert alert-warning\" role=\"alert\">
+    <i>Si votre Entreprise ne valide pas votre identité votre compte serai automatiquement supprimer  </i>
+  </div>
+  
+";
+        }
+        // line 15
+        echo "    ";
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 15, $this->source); })()), 'form');
         echo "
 ";
         
@@ -112,7 +123,7 @@ class __TwigTemplate_4c49c775435441d702c4dab2d627815e extends Template
 
     public function getDebugInfo()
     {
-        return array (  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  102 => 15,  94 => 9,  90 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -122,8 +133,15 @@ class __TwigTemplate_4c49c775435441d702c4dab2d627815e extends Template
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
+{% if app.user %}
+    <h1>J'ajoute un nouveau Partenaire</h1>
+{% else %}
+<h4>Es-tu le gerand d'une Entreprise ?</h4>
+<div class=\"alert alert-warning\" role=\"alert\">
+    <i>Si votre Entreprise ne valide pas votre identité votre compte serai automatiquement supprimer  </i>
+  </div>
+  
+{% endif %}
     {{ form(registrationForm) }}
 {% endblock %}
 ", "registration/register.html.twig", "/Users/pabios/Documents/3wa/symfony/blogsf01/templates/registration/register.html.twig");

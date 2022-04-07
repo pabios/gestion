@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}
-				BLOG
+				pabiosoft
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
@@ -15,50 +15,292 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		{% endblock %}
 	</head>
-	<header class="p-3 bg-dark text-white mb-3">
-		<div class="container">
-			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-				<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-					<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-						<use xlink:href="#bootstrap"></use>
-					</svg>
-				</a>
+	
+	
+	  <body>
+		 
+    
+	 <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
+		<a href="{{path('home')}}" class="navbar-brand col-md-3 col-lg-2 me-0 px-3">Pabiosoft</a>
 
-				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li>
-						<a href="{{path('home')}}" class="nav-link px-2 text-secondary">Home</a>
-					</li>
-				</ul>
+		<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<form action="{{path('search')}}" class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+			<input type="search" id="search" list="searchList" name="search" class="me-2 form-control form-control-dark" placeholder="Search..." aria-label="Search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
+		<datalist id="searchList"></datalist>
 
-				<form action="{{path('search')}}" class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-					<input type="search" id="search" list="searchList" name="search" class="me-2 form-control form-control-dark" placeholder="Search..." aria-label="Search">
-					<button class="btn btn-warning" type="submit">Search</button>
-				</form>
-				<datalist id="searchList"></datalist>
-				<div class="text-end">
-					{% if app.user %}
-						Bienvenue
-						{{app.user.firstname}}
-						<a href="{{path('logout')}}">
-							<button type="button" class="btn btn-outline-light me-2">Deconnexion</button>
+		 
+		 
+	  </header>
+	  
+	  <div class="container-fluid">
+		<div class="row">
+		  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+			<div class="position-sticky pt-3">
+			  <ul class="nav flex-column "  >
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="{{path('home')}}">
+					<span data-feather="home"></span>
+					Dashboard
+				  </a>
+				</li>
+
+				 
+				{% if app.user %}
+				<li class="nav-item">
+				  <a class="nav-link" href=" {{path('post')}}">
+					<span data-feather="shopping-cart"></span>
+					Fiche 
+				  </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href=" {{path('register')}}">
+					  <span data-feather="shopping-cart"></span>
+					  Collaborateur 
+					</a>
+				  </li>
+
+				  {% if (app.user.roles[0] == "ROLE_ADMIN") %}
+					<li class="nav-item">
+						<a class="nav-link" target="_blank" href=" {{path('admin')}}">
+						<span data-feather="shopping-cart"></span>
+						Gestion  
 						</a>
-
-					{% else %}
+					</li>
+					{% endif %}
+				{% endif %}
+			
+					
+				<li class="nav-item">
+				  <a class="nav-link" href="{{path('home_faq')}}">
+					<span data-feather="layers"></span>
+					Comment ça marche ?
+				  </a>
+				</li>
+			  </ul>
+	  
+			<hr>
+			<div class="dropdown">
+			  <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+				{% if app.user %}
+				<img src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png" alt="" width="32" height="32" class="rounded-circle me-2">
+				<strong>{{app.user.firstname}}</strong>
+				{% else %}
+				<img src="https://png.pngtree.com/png-vector/20190919/ourlarge/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+				<strong>Connect toi</strong>
+				{% endif %}
+			  </a>
+			  <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+				{% if app.user %}
+			
+				<li><a class="dropdown-item" href="{{path('logout')}}">Deconnexion</a></li>
+				{% else %}
+			
+				<li><a class="dropdown-item" href="{{path('login')}}">Connexion</a></li>
+				<li><a class="dropdown-item" href="{{path('register')}}">Inscription</a></li>
+				{% endif %}
+				<li><hr class="dropdown-divider"></li>
+				{% if app.user %}
+				<li><a class="dropdown-item" href="#">{{app.user.firstname}}</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </nav>
+	  
+		  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			  {% if app.user %}
+			  <h3 class="card-header">
+				{% if (app.user.roles[0] == "ROLE_ADMIN") %}
+				<mark>PDG:</mark> 
+				{% else %}
+				<mark>Gérant:</mark> 
+				{% endif %}
+				{{app.user.firstname}} de la société {{app.user.entreprise }}
+			 </h3>
+				{% else %}
+				<h3 class="card-header"> Votre outils de gestion </h3>
+				{% endif %}
+			  <div class="btn-toolbar mb-2 mb-md-0">
+				  {% if app.user %}
+					<div class="btn-group me-2">
+					<a href="{{path('post')}}">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Fiche</button>
+					</a>
+					<a href="{{path('register')}}">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Collaborateur</button>
+					</a>
+					{% if (app.user.roles[0] == "ROLE_ADMIN") %}
+					<a href="{{path('admin')}}" target="_blank">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Gestion</button>
+					</a>
+					{% endif %}
+					</div>
+				{% else %}
+					<div class="btn-group me-2">
 						<a href="{{path('login')}}">
-							<button type="button" class="btn btn-outline-light me-2">Connexion</button>
+							<button type="button" class="btn btn-sm btn-outline-secondary">Connection</button>
 						</a>
 						<a href="{{path('register')}}">
-							<button type="button" class="btn btn-warning">
-								Inscription</button>
+							<button type="button" class="btn btn-sm btn-outline-secondary">Inscription</button>
 						</a>
-					{% endif %}
-				</div>
+					</div>
+				{% endif %}
+				<a href="{{path('home')}}">
+				<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" >
+				  <span data-feather="calendar"></span>
+					Dashboard
+				</button>
+			</a>
+			  </div>
+			    
 			</div>
+			<div>
+				{% block body %}{% endblock %}
+			</div>
+			<!-- 
+			<h2>Section title</h2>
+			<div class="table-responsive">
+			  <table class="table table-striped table-sm">
+				<thead>
+				  <tr>
+					<th scope="col">#</th>
+					<th scope="col">Header</th>
+					<th scope="col">Header</th>
+					<th scope="col">Header</th>
+					<th scope="col">Header</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<td>1,001</td>
+					<td>random</td>
+					<td>data</td>
+					<td>placeholder</td>
+					<td>text</td>
+				  </tr>
+				  <tr>
+					<td>1,002</td>
+					<td>placeholder</td>
+					<td>irrelevant</td>
+					<td>visual</td>
+					<td>layout</td>
+				  </tr>
+				  <tr>
+					<td>1,003</td>
+					<td>data</td>
+					<td>rich</td>
+					<td>dashboard</td>
+					<td>tabular</td>
+				  </tr>
+				  <tr>
+					<td>1,003</td>
+					<td>information</td>
+					<td>placeholder</td>
+					<td>illustrative</td>
+					<td>data</td>
+				  </tr>
+				  <tr>
+					<td>1,004</td>
+					<td>text</td>
+					<td>random</td>
+					<td>layout</td>
+					<td>dashboard</td>
+				  </tr>
+				  <tr>
+					<td>1,005</td>
+					<td>dashboard</td>
+					<td>irrelevant</td>
+					<td>text</td>
+					<td>placeholder</td>
+				  </tr>
+				  <tr>
+					<td>1,006</td>
+					<td>dashboard</td>
+					<td>illustrative</td>
+					<td>rich</td>
+					<td>data</td>
+				  </tr>
+				  <tr>
+					<td>1,007</td>
+					<td>placeholder</td>
+					<td>tabular</td>
+					<td>information</td>
+					<td>irrelevant</td>
+				  </tr>
+				  <tr>
+					<td>1,008</td>
+					<td>random</td>
+					<td>data</td>
+					<td>placeholder</td>
+					<td>text</td>
+				  </tr>
+				  <tr>
+					<td>1,009</td>
+					<td>placeholder</td>
+					<td>irrelevant</td>
+					<td>visual</td>
+					<td>layout</td>
+				  </tr>
+				  <tr>
+					<td>1,010</td>
+					<td>data</td>
+					<td>rich</td>
+					<td>dashboard</td>
+					<td>tabular</td>
+				  </tr>
+				  <tr>
+					<td>1,011</td>
+					<td>information</td>
+					<td>placeholder</td>
+					<td>illustrative</td>
+					<td>data</td>
+				  </tr>
+				  <tr>
+					<td>1,012</td>
+					<td>text</td>
+					<td>placeholder</td>
+					<td>layout</td>
+					<td>dashboard</td>
+				  </tr>
+				  <tr>
+					<td>1,013</td>
+					<td>dashboard</td>
+					<td>irrelevant</td>
+					<td>text</td>
+					<td>visual</td>
+				  </tr>
+				  <tr>
+					<td>1,014</td>
+					<td>dashboard</td>
+					<td>illustrative</td>
+					<td>rich</td>
+					<td>data</td>
+				  </tr>
+				  <tr>
+					<td>1,015</td>
+					<td>random</td>
+					<td>tabular</td>
+					<td>information</td>
+					<td>text</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </main>
 		</div>
-	</header>
-	<body>
-		<div class="container"> {% block body %}{% endblock %}
-			</div>
+		-->
+	  </div>
+	  
+
+
+
+
+	 
+				 
 		</body>
 	</html>
 	<form>

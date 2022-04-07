@@ -3,7 +3,14 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
+{% if app.user %}
+    <h1>J'ajoute un nouveau Partenaire</h1>
+{% else %}
+<h4>Es-tu le gerand d'une Entreprise ?</h4>
+<div class="alert alert-warning" role="alert">
+    <i>Si votre Entreprise ne valide pas votre identité votre compte serai automatiquement supprimer  </i>
+  </div>
+  
+{% endif %}
     {{ form(registrationForm) }}
 {% endblock %}

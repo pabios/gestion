@@ -22,7 +22,7 @@ class PostCrudController extends AbstractCrudController
         return [
             "title",
             TextEditorField::new('content')->setNumOfRows(30),
-        //    DateTimeField::new('publishedDate'),
+        //  DateTimeField::new('publishedDate'),
             AssociationField::new('user'),
             AssociationField::new('categories')
         ];

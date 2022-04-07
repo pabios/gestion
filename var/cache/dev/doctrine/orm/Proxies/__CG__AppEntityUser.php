@@ -67,10 +67,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'posts', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'posts', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\User' . "\0" . 'entreprise'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'posts', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'posts', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\User' . "\0" . 'entreprise'];
     }
 
     /**
@@ -377,6 +377,28 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removePost', [$post]);
 
         return parent::removePost($post);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEntreprise(): ?\App\Entity\Entreprise
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntreprise', []);
+
+        return parent::getEntreprise();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEntreprise(?\App\Entity\Entreprise $entreprise): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntreprise', [$entreprise]);
+
+        return parent::setEntreprise($entreprise);
     }
 
 }

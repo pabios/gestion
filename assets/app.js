@@ -10,3 +10,10 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+// ne marche pas 
+import logoPath from './image/logo';
+
+let html = `<img src="${logoPath}" alt="ACME logo">`;
+
+require('../../images');

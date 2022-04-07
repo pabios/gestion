@@ -95,21 +95,25 @@ class __TwigTemplate_a0b6b7d092d576d8fb788983e09cd51a extends Template
         }
         // line 9
         echo "
-    <form action=\"";
+    <form   action=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\" method=\"post\">
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "\"/>
+        echo "\" method=\"post\" >
+        <div class=\"form-group\">
+          <label for=\"exampleDropdownFormEmail2\">Email ou N° Télephone</label>
+          <input type=\"text\" class=\"form-control\" id=\"exampleDropdownFormEmail2\" placeholder=\"email@example.com\" name=\"_username\" value=\"";
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 13, $this->source); })()), "html", null, true);
+        echo "\">
+        </div>
+        <div class=\"form-group\">
+          <label for=\"exampleDropdownFormPassword2\">Password</label>
+          <input type=\"password\" name=\"_password\"  class=\"form-control\" id=\"exampleDropdownFormPassword2\" placeholder=\"Password\">
+        </div>
+         
+        <button type=\"submit\" class=\"btn btn-primary\">Login</button>
+      </form>
 
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\"/>
-
-        <button type=\"submit\">login</button>
-    </form>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -131,7 +135,7 @@ class __TwigTemplate_a0b6b7d092d576d8fb788983e09cd51a extends Template
 
     public function getDebugInfo()
     {
-        return array (  105 => 12,  100 => 10,  97 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  106 => 13,  100 => 10,  97 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -145,15 +149,19 @@ class __TwigTemplate_a0b6b7d092d576d8fb788983e09cd51a extends Template
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action=\"{{ path('login') }}\" method=\"post\">
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\"/>
+    <form   action=\"{{ path('login') }}\" method=\"post\" >
+        <div class=\"form-group\">
+          <label for=\"exampleDropdownFormEmail2\">Email ou N° Télephone</label>
+          <input type=\"text\" class=\"form-control\" id=\"exampleDropdownFormEmail2\" placeholder=\"email@example.com\" name=\"_username\" value=\"{{ last_username }}\">
+        </div>
+        <div class=\"form-group\">
+          <label for=\"exampleDropdownFormPassword2\">Password</label>
+          <input type=\"password\" name=\"_password\"  class=\"form-control\" id=\"exampleDropdownFormPassword2\" placeholder=\"Password\">
+        </div>
+         
+        <button type=\"submit\" class=\"btn btn-primary\">Login</button>
+      </form>
 
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\"/>
-
-        <button type=\"submit\">login</button>
-    </form>
 {% endblock %}
 ", "login/index.html.twig", "/Users/pabios/Documents/3wa/symfony/blogsf01/templates/login/index.html.twig");
     }

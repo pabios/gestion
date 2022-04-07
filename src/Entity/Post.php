@@ -23,7 +23,17 @@ class Post
     private $user;
 
     #[ORM\Column(type: 'text')]
-    private $content;
+    private $content; // avance espece pour TEPA
+
+    #[ORM\Column(type: 'text')]
+    private $montant; // montant ttc pour Tepa
+
+    #[ORM\Column(type: 'text')]
+    private $lieu; // Lieu de chargement  pour Tepa
+
+    #[ORM\Column(type: 'text')]
+    private $bl; // B.L de chargement  pour Tepa
+
 
     #[ORM\Column(type: 'datetime')]
     private $publishedDate;
@@ -82,6 +92,42 @@ class Post
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getBl(): ?string
+    {
+        return $this->bl;
+    }
+
+    public function setBl(string $bl): self
+    {
+        $this->bl = $bl;
+
+        return $this;
+    }
+
+    public function getMontant(): ?string
+    {
+        return $this->montant;
+    }
+
+    public function setMontant(string $montant): self
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
 
         return $this;
     }

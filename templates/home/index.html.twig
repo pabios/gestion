@@ -4,10 +4,24 @@
 {% block body %}
 
 	<div id="posts" class="row mb-2">
-		
+		{% if app.user %}
 	{% include "/home/posts.html.twig" %}
-
-
 	</div>
 	<button class="btn btn-dark mb-5 " id="loadPosts">Chargez plus d'articles</button>
-{% endblock %}
+
+		{% else %}
+		 
+		  <div class="card-footer">
+			<div class="alert alert-primary" role="alert">
+				Vous n’êtes pas connecter 
+			  </div>
+			<small style="font-size: medium;"  >  
+				 Veuillez lire la page <a href="{{path('home_faq')}}" >Comment ça marche</a> si c'est votre première visite
+			</small>
+		</div>
+			
+	  </div>
+		{% endif %}
+
+	
+	{% endblock %}
