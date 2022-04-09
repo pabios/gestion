@@ -21,7 +21,7 @@ class UserCrudController extends AbstractCrudController
             yield "password";
             yield "firstname";
              
-            
+
             yield  ChoiceField::new("roles")->setChoices([
                 'ROLE_USER' => 'ROLE_USER',
                 'ROLE_EDITOR' => 'ROLE_EDITOR',
