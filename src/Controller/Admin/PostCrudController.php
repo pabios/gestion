@@ -18,13 +18,15 @@ class PostCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-
+            //content le reste a payer i.e project tpa
         return [
             "title",
-            TextEditorField::new('content')->setNumOfRows(30),
+            TextEditorField::new('content','avance espece')->setNumOfRows(30),
         //  DateTimeField::new('publishedDate'),
-            AssociationField::new('user'),
-            AssociationField::new('categories')
+            AssociationField::new('montant','montant convenu'),
+            AssociationField::new('bl','bon de Livraison'),
+            AssociationField::new('user','utilisateur'),
+            AssociationField::new('categories','immatriculation')
         ];
     }
     
