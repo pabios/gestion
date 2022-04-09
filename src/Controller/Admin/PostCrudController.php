@@ -25,7 +25,7 @@ class PostCrudController extends AbstractCrudController
             TextField::new('title','destination'),
             //TextEditorField::new('content','avance espece')->setNumOfRows(30),
             MoneyField::new('content','avance espece')->setCurrency('GNF'),
-            DateTimeField::new('publishedDate'),
+            //DateTimeField::new('publishedDate'),
             MoneyField::new('montant','montant convenu')->setCurrency('GNF'),
             TextField::new('bl','bon de Livraison'),
             AssociationField::new('user','utilisateur'),
