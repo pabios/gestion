@@ -22,13 +22,13 @@ class PostCrudController extends AbstractCrudController
     {
             //content le reste a payer i.e project tpa
         return [
+            TextField::new('bl','bon de Livraison'),
             TextField::new('title','destination'),
             //TextEditorField::new('content','avance espece')->setNumOfRows(30),
             MoneyField::new('content','avance espece')->setCurrency('GNF'),
             //DateTimeField::new('publishedDate'),
             MoneyField::new('montant','montant convenu')->setCurrency('GNF'),
-            TextField::new('bl','bon de Livraison'),
-            AssociationField::new('user','utilisateur'),
+            AssociationField::new('user','chauffeur'),
             AssociationField::new('categories','immatriculation')
         ];
     }
