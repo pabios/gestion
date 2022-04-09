@@ -11,11 +11,10 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @UniqueEntity(fields={"email"}, message="Un compte a ce nom existe deja veuillez vous y connecter")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-//class User implements UserInterface, PasswordAuthenticatedUserInterface
-class User implements  PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -80,18 +79,17 @@ class User implements  PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function getRoles(): string
+    public function getRoles(): array
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         //$roles[] = 'ROLE_USER';
-        $roles= "ROLE_USER";
+        $roles[] = 'ROLE_USER';
 
-       // return array_unique($roles);
-        return  $roles;
+        return array_unique($roles);
     }
 
-    public function setRoles($roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
