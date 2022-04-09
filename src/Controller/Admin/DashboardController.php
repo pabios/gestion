@@ -46,9 +46,9 @@ class DashboardController extends AbstractDashboardController
     {
         return [
         MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-        MenuItem::linkToCrud('Post', 'fas fa-book', Post::class),
-        MenuItem::linkToCrud('User', 'fas fa-user-circle', User::class),
-        MenuItem::linkToCrud('Mes catégories', 'fas fa-th', Category::class)
+        MenuItem::linkToCrud('Fiche', 'fas fa-book', Post::class),
+        //MenuItem::linkToCrud('User', 'fas fa-user-circle', User::class),
+        MenuItem::linkToCrud('Immatriculation', 'fas fa-th', Category::class)
         ];
 
 
