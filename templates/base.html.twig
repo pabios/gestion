@@ -50,7 +50,7 @@
 				</li>
 
 				 
-				{% if app.user %}
+				{% if app.user.roles !- Null  %}
 				<li class="nav-item">
 				  <a class="nav-link" href=" {{path('post')}}">
 					<span data-feather="shopping-cart"></span>
