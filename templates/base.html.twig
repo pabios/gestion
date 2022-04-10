@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}
 				pabiosoft
@@ -49,8 +48,8 @@
 				  </a>
 				</li>
 
-				{% if app.user %} 
-				{% if app.user.roles[0] == "ROLE_USER"  %}
+				 
+				{% if app.user %}
 				<li class="nav-item">
 				  <a class="nav-link" href=" {{path('post')}}">
 					<span data-feather="shopping-cart"></span>
@@ -73,7 +72,7 @@
 					</li>
 					{% endif %}
 				{% endif %}
-				{% endif %}
+			
 					
 				<li class="nav-item">
 				  <a class="nav-link" href="{{path('home_faq')}}">
@@ -113,17 +112,15 @@
 	  
 		  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-				
-				{% if app.user %}
-					 
-						<h3 class="card-header">
-						{% if (app.user.roles[0] == "ROLE_ADMIN") %}
-						<mark>PDG:</mark> 
-						{% else %}
-						<mark>office:</mark> 
-						{% endif %}
-					{{app.user.firstname}} de la société {{app.user.entreprise }}
-					 	</h3>
+			  {% if app.user %}
+			  <h3 class="card-header">
+				{% if (app.user.roles[0] == "ROLE_ADMIN") %}
+				<mark>PDG:</mark> 
+				{% else %}
+				<mark>Gérant:</mark> 
+				{% endif %}
+				{{app.user.firstname}} de la société {{app.user.entreprise }}
+			 </h3>
 				{% else %}
 				<h3 class="card-header"> Votre outils de gestion </h3>
 				{% endif %}
@@ -157,8 +154,10 @@
 				  <span data-feather="calendar"></span>
 					Dashboard
 				</button>
-				</a>
+			</a>
 			  </div>
+			    
+			</div>
 			<div>
 				{% block body %}{% endblock %}
 			</div>
