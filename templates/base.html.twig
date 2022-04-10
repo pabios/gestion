@@ -113,12 +113,11 @@
 	  
 		  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			  {% if app.user %}
 				{% if (app.user.roles[0] != "ROLE_USER")  %}
 					<h3 class="card-header">
 						<mark> Compte en cours d'activation</mark> 
 					</h3>
-				 	Bienvenue {{app.user.firstname}} de la société {{app.user.entreprise }} Votre Patron est surement entrain de d'activer votre compte n'hésite pas a le lui rappeler!
+				 	Bienvenue {{app.user.firstname}} de la société {{app.user.entreprise }} Votre Patron est surement entrain  d'activer votre compte n'hésite pas a le lui rappeler!
 			  		{% endif %}
 
 
@@ -127,7 +126,7 @@
 				{% if (app.user.roles[0] == "ROLE_ADMIN") %}
 				<mark>PDG:</mark> 
 				{% else %}
-				<mark>Gérant:</mark> 
+				<mark>office:</mark> 
 				{% endif %}
 				{{app.user.firstname}} de la société {{app.user.entreprise }}
 			 </h3>
@@ -167,7 +166,6 @@
 				</a>
 			  </div>
 			    {% endif %}
-			</div>
 			<div>
 				{% block body %}{% endblock %}
 			</div>
