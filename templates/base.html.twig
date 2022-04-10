@@ -121,15 +121,15 @@
 			  		{% endif %}
 
 
-				{% if app.user.roles != null %}
-			  <h3 class="card-header">
-				{% if (app.user.roles[0] == "ROLE_ADMIN") %}
-				<mark>PDG:</mark> 
-				{% else %}
-				<mark>office:</mark> 
-				{% endif %}
-				{{app.user.firstname}} de la société {{app.user.entreprise }}
-			 </h3>
+				{% if app.user %}
+						<h3 class="card-header">
+						{% if (app.user.roles[0] == "ROLE_ADMIN") %}
+						<mark>PDG:</mark> 
+						{% else %}
+						<mark>office:</mark> 
+						{% endif %}
+					{{app.user.firstname}} de la société {{app.user.entreprise }}
+					 	</h3>
 				{% else %}
 				<h3 class="card-header"> Votre outils de gestion </h3>
 				{% endif %}
