@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- prix du gazoir + avance espace  retirer a montant convenu -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}
-				pabiosoft
+				Manager
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
@@ -22,7 +23,7 @@
 		 
     
 	 <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
-		<a href="{{path('home')}}" class="navbar-brand col-md-3 col-lg-2 me-0 px-3">Pabiosoft</a>
+		<a href="{{path('home')}}" class="navbar-brand col-md-3 col-lg-2 me-0 px-3">Manager</a>
 
 		<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
@@ -120,7 +121,7 @@
 				{% else %}
 				<mark>Office:</mark> 
 				{% endif %}
-				{{app.user.firstname}} de la société {{app.user.entreprise }}
+				{{app.user.firstname |u.truncate(6, '.')}} de la société {{app.user.entreprise |u.truncate(5, '..') }}
 			 </h3>
 				{% else %}
 				<h3 class="card-header"> Votre outils de gestion </h3>

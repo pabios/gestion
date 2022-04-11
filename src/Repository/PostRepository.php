@@ -34,7 +34,6 @@ class PostRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
-
     /**
      * recherche par categorie | tepa = Immatriculation
      */

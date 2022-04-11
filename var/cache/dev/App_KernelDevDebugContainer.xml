@@ -5011,6 +5011,9 @@
         <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.string"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension"/>
       </call>
       <call method="addGlobal">
@@ -5413,6 +5416,9 @@
       </argument>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor"/>
+    <service id="twig.extension.string" class="Twig\Extra\String\StringExtension">
+      <tag name="twig.extension"/>
+    </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="debug.security.access.decision_manager"/>
@@ -7358,7 +7364,7 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.GPGtF8v.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.OwMPgg9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._Tzy02L" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\CategoryCrudController::autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
@@ -7425,8 +7431,10 @@
         <argument key="App\Controller\Admin\UserCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\HomeController::bdd" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\HomeController::faq" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.Xf_chUG"/>
+        <argument key="App\Controller\HomeController::voirPlus" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\LoginController::index" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\PostController::categoryPosts" type="service_closure" id=".service_locator.Qq9xmuL"/>
         <argument key="App\Controller\PostController::datePosts" type="service_closure" id=".service_locator.rzsDkoD"/>
@@ -7511,8 +7519,10 @@
         <argument key="App\Controller\Admin\UserCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\UserCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\UserCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\HomeController:bdd" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\HomeController:faq" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.Xf_chUG"/>
+        <argument key="App\Controller\HomeController:voirPlus" type="service_closure" id=".service_locator.Xf_chUG"/>
         <argument key="App\Controller\LoginController:index" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\PostController:categoryPosts" type="service_closure" id=".service_locator.Qq9xmuL"/>
         <argument key="App\Controller\PostController:datePosts" type="service_closure" id=".service_locator.rzsDkoD"/>
@@ -8265,12 +8275,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.OwMPgg9"/>
+      <argument type="service" id=".service_locator._Tzy02L"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.OwMPgg9"/>
+      <argument type="service" id=".service_locator._Tzy02L"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9242,7 +9252,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.OwMPgg9"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator._Tzy02L"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9272,7 +9282,7 @@
     <service id=".service_locator.3WKGjNY" alias=".service_locator.Qq9xmuL"/>
     <service id=".service_locator.ThTk2EK" alias=".service_locator.sV_lXpb"/>
     <service id=".service_locator.b76MKMg" alias=".service_locator.GPGtF8v"/>
-    <service id=".service_locator.ZDU9vYS" alias=".service_locator.OwMPgg9"/>
+    <service id=".service_locator.e.gOJEP" alias=".service_locator._Tzy02L"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.OzjkEey" alias=".service_locator.zMWslkf"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

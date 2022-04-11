@@ -91,7 +91,7 @@ class __TwigTemplate_4c49c775435441d702c4dab2d627815e extends Template
 ";
         } else {
             // line 9
-            echo "<h4>Es-tu le gerand d'une Entreprise ?</h4>
+            echo "<h4>Es-tu le gérant d'une Entreprise ?</h4>
 <div class=\"alert alert-warning\" role=\"alert\">
     <i>Si votre Entreprise ne valide pas votre identité votre compte serai automatiquement supprimer  </i>
   </div>
@@ -136,7 +136,7 @@ class __TwigTemplate_4c49c775435441d702c4dab2d627815e extends Template
 {% if app.user %}
     <h1>J'ajoute un nouveau Partenaire</h1>
 {% else %}
-<h4>Es-tu le gerand d'une Entreprise ?</h4>
+<h4>Es-tu le gérant d'une Entreprise ?</h4>
 <div class=\"alert alert-warning\" role=\"alert\">
     <i>Si votre Entreprise ne valide pas votre identité votre compte serai automatiquement supprimer  </i>
   </div>

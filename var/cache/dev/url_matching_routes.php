@@ -16,6 +16,7 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/faq' => [[['_route' => 'home_faq', '_controller' => 'App\\Controller\\HomeController::faq'], null, null, null, false, false, null]],
+        '/bdd' => [[['_route' => 'bdd', '_controller' => 'App\\Controller\\HomeController::bdd'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/post/create' => [[['_route' => 'post', '_controller' => 'App\\Controller\\PostController::new'], null, null, null, false, false, null]],
         '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\PostController::search'], null, null, null, false, false, null]],
@@ -41,17 +42,18 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
+                .'|/api(?:/([^/]++))?(*:186)'
                 .'|/post(?'
-                    .'|\\-edit/([^/]++)(*:191)'
-                    .'|/([^/]++)(*:208)'
+                    .'|\\-edit/([^/]++)(*:217)'
+                    .'|/([^/]++)(*:234)'
                 .')'
-                .'|/category/([^/]++)(*:235)'
-                .'|/editor(?:/([^/]++))?(*:264)'
-                .'|/date/([^/]++)(*:286)'
+                .'|/category/([^/]++)(*:261)'
+                .'|/editor(?:/([^/]++))?(*:290)'
+                .'|/date/([^/]++)(*:312)'
                 .'|/user/([^/]++)(?'
-                    .'|(*:311)'
-                    .'|/edit(*:324)'
-                    .'|(*:332)'
+                    .'|(*:337)'
+                    .'|/edit(*:350)'
+                    .'|(*:358)'
                 .')'
             .')/?$}sDu',
     ],
@@ -63,14 +65,15 @@ return [
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        191 => [[['_route' => 'post-edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], null, null, false, true, null]],
-        208 => [[['_route' => 'post-detail', '_controller' => 'App\\Controller\\PostController::detail'], ['id'], null, null, false, true, null]],
-        235 => [[['_route' => 'category-posts', '_controller' => 'App\\Controller\\PostController::categoryPosts'], ['name'], null, null, false, true, null]],
-        264 => [[['_route' => 'editor-posts', 'id' => null, '_controller' => 'App\\Controller\\PostController::editorPosts'], ['id'], null, null, false, true, null]],
-        286 => [[['_route' => 'date-posts', '_controller' => 'App\\Controller\\PostController::datePosts'], ['date'], null, null, false, true, null]],
-        311 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        324 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        332 => [
+        186 => [[['_route' => 'api_post_voir', 'offset' => 0, '_controller' => 'App\\Controller\\HomeController::voirPlus'], ['offset'], null, null, false, true, null]],
+        217 => [[['_route' => 'post-edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], null, null, false, true, null]],
+        234 => [[['_route' => 'post-detail', '_controller' => 'App\\Controller\\PostController::detail'], ['id'], null, null, false, true, null]],
+        261 => [[['_route' => 'category-posts', '_controller' => 'App\\Controller\\PostController::categoryPosts'], ['name'], null, null, false, true, null]],
+        290 => [[['_route' => 'editor-posts', 'id' => null, '_controller' => 'App\\Controller\\PostController::editorPosts'], ['id'], null, null, false, true, null]],
+        312 => [[['_route' => 'date-posts', '_controller' => 'App\\Controller\\PostController::datePosts'], ['date'], null, null, false, true, null]],
+        337 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        350 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        358 => [
             [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -28,6 +28,19 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/api/{offset}', name: 'api_post_voir')]
+    public function voirPlus(Request $request,PostRepository $postRepository,$offset=0): Response
+    {
+        echo 'toto';
+        exit();
+        /*$allPosts = $postRepository->findBy([], ['publishedDate' => 'DESC'], 5,$offset);
+
+        return $this->render('api/voirPlus.html.twig', [
+            'posts' => $allPosts,
+            'offset' => $offset
+        ]);*/
+    }
+
     #[Route('/faq', name: 'home_faq')]
     public function faq(Request $request,PostRepository $postRepository): Response
     {

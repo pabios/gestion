@@ -3,24 +3,26 @@
 	<div class="col-md-3">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 			<div class="col p-4 d-flex flex-column position-static">
-				{% for category in post.categories %}
-					<a href="{{ path('category-posts', { name: category.name}) }}">
-						<strong class="d-inline-block mb-2 text-success">{{category}}</strong>
-					</a>
-				{% endfor %}
+			 	
 				<img class="me-3" width="100%" src="{{ post.image}}" alt="">
 					
-				<a href="{{ path('editor-posts', { id: post.user.id}) }}">
-					<strong class="d-inline-block mb-2 text-warning">{{post.user.email}}</strong>
+				<a class="btn btn-link" href="{{ path('editor-posts', { id: post.user.id}) }}">
+					<strong  >{{post.user.firstname}}</strong>
 				</a>
-				<h3 class="mb-0">{{post.title}}</h3>
+				<h3 class="mb-0">{{post.title  |u.truncate(6, '...')}}</h3>
 				<div class="mb-1 text-muted">
 					<a href="{{ path('date-posts', { date: post.publishedDate|date("Y-m-d")}) }}">
 						{{ post.publishedDate|date("d/m/Y")}}</a>
 				</div>
 				<p class="mb-auto">{{ post.content|striptags|replace({'&nbsp;': ''})|slice(0,50)}}
 					...</p>
-				<a href="{{ path('post-detail', { id: post.id}) }} " class="">Lire la suite</a>
+				<a href="{{ path('post-detail', { id: post.id}) }} " class="">Lire</a>
+				<mark>Entreprise:</mark>
+				{%  for category in post.categories %}
+					<a class="btn btn-primary" role="button" href="{{ path('category-posts', { name: category.name}) }}">
+						<strong  >{{category}}</strong>
+					</a>
+				{% endfor %}
 			</div>
 
 		</div>

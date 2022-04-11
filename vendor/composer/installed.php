@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0d1516ed977b8314487faa3660695c305e616a02',
+        'reference' => '7e605cbf1ba3c80bda068b4c9754555b9b50d872',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0d1516ed977b8314487faa3660695c305e616a02',
+            'reference' => '7e605cbf1ba3c80bda068b4c9754555b9b50d872',
             'dev_requirement' => false,
         ),
         'bluemmb/faker-picsum-photos-provider' => array(
@@ -1116,6 +1116,15 @@
             'install_path' => __DIR__ . '/../twig/extra-bundle',
             'aliases' => array(),
             'reference' => '2e58256b0e9fe52f30149347c0547e4633304765',
+            'dev_requirement' => false,
+        ),
+        'twig/string-extra' => array(
+            'pretty_version' => 'v3.3.5',
+            'version' => '3.3.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/string-extra',
+            'aliases' => array(),
+            'reference' => '03608ae2e9c270a961e8cf1b75751e8635ad3e3c',
             'dev_requirement' => false,
         ),
         'twig/twig' => array(
