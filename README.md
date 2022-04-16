@@ -1,7 +1,7 @@
 # Symfony
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://portfolio.pabiosoft.com)
 ## Site final
-# [gestion.pabiosoft.com](https://gestion.pabiosoft.com)
+# [gestion.pabiosoft.com](http://gestion.pabiosoft.com)
 ## _Description_
 Adapter le blog en platform de gestion pour une entreprise de gestion d'une flotte de camion
 ### _Quelques Fonctionnalités_
@@ -11,6 +11,7 @@ Adapter le blog en platform de gestion pour une entreprise de gestion d'une flot
 ## Features
 
 - changer le nom des entity
+- Recherce par autocompletion js
 
 ## Tech
 
